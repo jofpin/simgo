@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 function shareSimgo() {
   var $url = "https://github.com/jofpin/simgo";
-  $("a").on("click", function() {
+  $("#twitter").on("click", function() {
     var body = window.open($(this).attr("href"), "", "height=480,width=560");
     return window.focus && body.focus(), false;
   });
