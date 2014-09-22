@@ -73,6 +73,16 @@ if (ajax()) {
 }
 
 ```
+
+baseUrl(); & currentUrl();
+```php
+// Example: Management of "base url" and "current url"
+baseUrl();
+currentUrl();
+// and ready!
+
+```
+
 * These two functions are information and documentation!
 
 author(); & version();
