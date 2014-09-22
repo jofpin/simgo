@@ -33,22 +33,22 @@ goClean("<script>alert(1337);</script>");  /* = */ go(clean("<script>alert(1337)
 
 get(); & post("");
 ```php
-// Example: It's boring to always write $_GET["chicken"]; or $_POST["chicken"]; This is already in the past. now is get("chicken"); and post("chiken);
-$request = get("chiken");
+// Example: It's boring to always write $_GET["chicken"]; or $_POST["chicken"]; This is already in the past. now is get("chicken"); and post("chicken");
+$request = get("chicken");
 go($request);
 // a little sexy!
-goGet("chiken");  /* GET printing /* = */ go(get("chiken"));
-goPost("chiken"); /* POST printing /* = */ go(post("chiken"));
+goGet("chicken");  /* GET printing /* = */ go(get("chicken"));
+goPost("chicken"); /* POST printing /* = */ go(post("chicken"));
 
 ```
 
 email();
 ```php
 // Example: Protection of email to prevent spam-bots and sniff. ;)
-$mail = email("chiken@example.com");
+$mail = email("chicken@example.com");
 go($mail);
 // When print direct!
-goEmail("chiken@example.com"); /* = */ go(email("chiken@example.com"));
+goEmail("chicken@example.com"); /* = */ go(email("chicken@example.com"));
 
 ```
 
