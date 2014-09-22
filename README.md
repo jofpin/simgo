@@ -19,6 +19,8 @@ go();
 // Example: "echo" It serves to print, but many people criticize it. here use go(""); printable!
 $test = "Blue chickens";
 go($test);
+// simple text
+go("Hi I'm chicken"); 
 ```
 
 clean();
