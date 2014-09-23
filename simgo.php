@@ -214,7 +214,7 @@ class simgo {
     function filter($string) {
         // provent xss sanitize caracters :) <> </>
         $string = simgo::sanitizeXSS($string);
-        $string = simgo::recii($string)
+        $string = simgo::recii($string);
 
         // wojo
         return $string;
@@ -228,11 +228,10 @@ class simgo {
      * @param string $string
      */
     function goFilter($string) {
-        // provent xss sanitize caracters :) <> </>
         $string = simgo::sanitizeXSS($string);
-        $string = simgo::recii($string)
+        $string = simgo::recii($string);
 
-        // wojo
+        // go on
         return go($string);
     }
 
