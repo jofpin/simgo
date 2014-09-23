@@ -33,6 +33,16 @@ goClean("<script>alert(1337);</script>");  /* = */ go(clean("<script>alert(1337)
 
 ```
 
+filter();
+```php
+// Example: Single xss and special here in simgo cleaning filter! 
+$xss = filter("<script>alert("xss");</script>");
+go($xss); 
+// A good cleaning 
+goFilter("<script>alert("xss");</script>");  /* = */ go(filter("<script>alert("xss");</script>"));
+
+```
+
 get(); & post("");
 ```php
 // Example: It's boring to always write $_GET["chicken"]; or $_POST["chicken"]; This is already in the past. now is get("chicken"); and post("chicken");
