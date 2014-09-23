@@ -54,6 +54,16 @@ goEmail("chicken@example.com"); /* = */ go(email("chicken@example.com"));
 
 ```
 
+fus();
+```php
+// Example: Prevent sniffing of text, and also obfuscate! 3:
+$text = fus("Insert text to protect");
+go($text);
+// When print direct!
+goFus("Insert text to protect"); /* = */ go(fus("Insert text to protect"));
+
+```
+
 
 goHeader(); & redirect();
 ```php
