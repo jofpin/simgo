@@ -156,7 +156,7 @@ class simgo {
     /**
     * 
     * Game of functions  (Simgo)
-    * Functions: go, clean, goHeader, redirect, post, get, ajax, email, baseURL, currentURL, version & author!
+    * Functions: go, clean, goHeader, redirect, post, get, ajax, fus, email, baseURL, currentURL, version & author!
     *
     */
 
