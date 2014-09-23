@@ -6,7 +6,7 @@
  * This is a simple and attractive library will help you to write php code more clear and easy!
  *
  * @package     Simgo
- * @version     1.0
+ * @version     1.1
  *
  * @author      Jose Pino / Fraph <jofpin@gmail.com>
  * @copyright   2014 Jose Pino / @jofpin
@@ -48,7 +48,7 @@ class simgo {
      * @example go(simgo::VERSION);
      * @var string
      */
-    const VERSION = "1.0";
+    const VERSION = "1.1";
 
     /**
      * This is simple happy code.
@@ -117,7 +117,7 @@ class simgo {
     /**
      * Convert special characters to HTML entities.
      * Trick to avoid the injections and XSS execution (Sanitize).
-     * This function is the clean() support!
+     * This function is the clean(); and filter(); support!
      *
      *
      * @example simgo::xssFix("<script>alert(1337);</script>");
@@ -128,14 +128,40 @@ class simgo {
      */
     public static function xssFix($value, $encode = true) {
         return htmlentities((string) $value, ENT_QUOTES, "utf-8", $encode);
-        // return go(htmlspecialchars($string, ENT_QUOTES, "utf-8"));
+        // ...
     }
 
+    /**
+     * Single xss and special here in simgo cleaning filter! (Sanitize)
+     * This function is the filter() support!
+     *
+     *
+     * @example simgo::sanitizeXSS("<script>alert(1337);</script>");
+     *
+     * @param  string  $string
+     * @return string
+     */
+    public static function sanitizeXSS($string) {
+        $string = str_replace("&", "&amp;", $string);
+        $string = str_replace(":", "&#58;", $string);
+        $string = str_replace(";", "&#59;", $string);
+        $string = str_replace("/", "&#47;", $string);
+        $string = str_replace(">", "&#62;", $string);
+        $string = str_replace("<", "&#60;", $string);
+        $string = str_replace("'", "&#39;", $string);
+        $string = str_replace("-", "&#45;", $string);
+        $string = str_replace("_", "&#95;", $string);
+        $string = str_replace("=", "&#61;", $string);
+        $string = str_replace("(", "&#40;", $string);
+        $string = str_replace(")", "&#41;", $string);
+
+        return $string;
+}
     /**
      * This is to prevent (null) character between ascii characters.
      * remove Invisible Characters!
      * Seriously this help too!
-     * function support for clean() connected to xssFix()
+     * function support for clean() and filter() connected to xssFix() with sanitizeXSS();
      *
      * @param string $string
      */
@@ -156,7 +182,7 @@ class simgo {
     /**
     * 
     * Game of functions  (Simgo)
-    * Functions: go, clean, goHeader, redirect, post, get, ajax, fus, email, baseURL, currentURL, version & author!
+    * Functions: go, clean, goHeader, redirect, post, get, ajax, email, baseURL, currentURL, version & author!
     *
     */
 
@@ -175,6 +201,39 @@ class simgo {
         $string = simgo::xssFix($string); 
 
         return $string;
+    }
+
+    /**
+     * Sanitize data to prevent (XSS) filter unique!
+     *
+     * @example $var = filter("<script>alert(1337);</script>");
+     * @example go(filter("<script>alert(1337);</script>"));  > For this you better use the function goFilter();
+     *
+     * @param string $string
+     */
+    function filter($string) {
+        // provent xss sanitize caracters :) <> </>
+        $string = simgo::sanitizeXSS($string);
+        $string = simgo::recii($string)
+
+        // wojo
+        return $string;
+    }
+
+    /**
+     * filter with go!
+     *
+     * @example goFilter("<script>alert(1337);</script>");
+     *
+     * @param string $string
+     */
+    function goFilter($string) {
+        // provent xss sanitize caracters :) <> </>
+        $string = simgo::sanitizeXSS($string);
+        $string = simgo::recii($string)
+
+        // wojo
+        return go($string);
     }
 
     /**
