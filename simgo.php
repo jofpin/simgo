@@ -82,18 +82,19 @@ class simgo {
     }
 
     /**
-     * Protection of email to prevent spam-bots and sniff.
+     * Protection of email & text to prevent spam-bots and sniff.
      *
      * Making random each of the values to hexadecimal
      * This will keep confused bots that try to sniff
-     * This function is a support function for "email()" and play!
+     * This function is a support function for "email(); & fus();" and play!
      *
-     * @example go(simgo::hexmailer("test@test.com")); is optional better to use function email()!
+     * @example go(simgo::hextext("test@test.com")); is optional better to use function email()!
+     * @example go(simgo::hextext("Your text")); is optional better to use function fus()!
      *
      * @param  string  $value_unique
      * @return string
      */
-    public static function hexmailer($value_unique) {
+    public static function hextext($value_unique) {
 
         $secure = "";
 
@@ -326,9 +327,41 @@ class simgo {
     }
 
     /**
+     * Prevent sniffing of text, and also obfuscate!
+     * This is the stand that receives the function hextext() to do magic
+     *
+     * @example  $var = fus("here text");
+     * @example  go(fus("here text")); > For this you better use the function goFus();
+     *
+     * @param  string  $string
+     * @return string
+     */
+    function fus($string) {
+        $string = simgo::hextext($string);
+
+        return $string;
+     }
+
+    /**
+     * fus with go!
+     *
+     * @example  goFus("here text");
+     *
+     * @param  string  $string
+     * @return string
+     */
+    function goFus($string) {
+        $string = simgo::hextext($string);
+
+        // go on here 
+        return go($string);
+     }
+
+
+    /**
      * Protection of email to prevent spam-bots and sniff.
      * This is really sexy, already you know ;)
-     * This is the stand that receives the function hidemailer() to do magic
+     * This is the stand that receives the function hextext() to do magic
      *
      * @example  $var = email("test@test.com");
      * @example  go(email("test@test.com")); > For this you better use the function goEmail();
@@ -337,7 +370,7 @@ class simgo {
      * @return string
      */
     function email($mail) {
-         return str_replace("@", "&#64;", simgo::hexmailer($mail));
+         return str_replace("@", "&#64;", simgo::hextext($mail));
      }
 
     /**
@@ -349,7 +382,7 @@ class simgo {
      * @return string
      */
     function goEmail($mail) {
-         return go(str_replace("@", "&#64;", simgo::hexmailer($mail)));
+         return go(str_replace("@", "&#64;", simgo::hextext($mail)));
      }
 
     /**
