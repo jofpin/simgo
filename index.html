@@ -43,9 +43,11 @@
   <code>go<span>(</span><span>"example"</span><span id="c">);</code>
 </pre>
 <pre>
-  <code>clean<span>(</span><span>"&lt;script&gt;alert("xss");&lt;/script&gt;"</span><span id="c">);</code>
+  <code>clean<span>(</span><span>"&lt;script&gt;alert(1337);&lt;/script&gt;"</span><span id="c">);</code>
 </pre>
-
+<pre>
+  <code>filter<span>(</span><span>"&lt;script&gt;alert("xss");&lt;/script&gt;"</span><span id="c">);</code>
+</pre>
 <pre>
   <code>post<span>(</span><span>"param"</span><span id="c">);</code>
 </pre>
