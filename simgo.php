@@ -278,18 +278,6 @@ class simgo {
     }
 
     /**
-     * To replace the ugly "include"
-     *
-     * @example go("footer.php");
-     *
-     * @param  string $string
-     * @return string
-     */
-    function page($string) {
-        include $string;
-    }
-
-    /**
      * Customization and replacement of header() by goHeader()
      * For the use and support of the redirect() function
      *
