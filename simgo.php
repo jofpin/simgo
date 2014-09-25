@@ -268,7 +268,8 @@ class simgo {
      * To replace the ugly "include"
      * This is for preytext!
      *
-     * @example go("footer.php");
+     * @example page("header.php");
+     * @example page("footer.php");
      *
      * @param  string $string
      * @return string
