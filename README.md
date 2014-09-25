@@ -23,6 +23,13 @@ go($test);
 go("Hi I'm chicken"); 
 ```
 
+page("");
+```php
+// Example: To replace the ugly "include"
+page("header.php");
+page("footer.php");
+```
+
 clean();
 ```php
 // Example: This is the replacement of htmlentities but more strong against the Cross-site scripting (XSS)!
