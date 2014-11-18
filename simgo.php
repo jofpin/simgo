@@ -266,7 +266,6 @@ class simgo {
 
     /**
      * To replace the ugly "include"
-     * This is for preytext!
      *
      * @example page("header.php");
      * @example page("footer.php");
