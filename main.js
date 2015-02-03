@@ -37,7 +37,7 @@ $(document).ready(function() {
     name : "Simgo",
     author : "Jose Pino",
     twitter : "https://twitter.com/jofpin",
-    txt1 : "* This is a simple and attractive library will help you to write php code more clear and easy!",
+    txt1 : "* Micro-Framework. This is a simple and attractive library will help you to write php code more clear and easy!",
     txt2 : "The library is fully documented, and is easy to understand, I'm looking for improving and facilitating the writing of php. Have to play with the programming languages ​​they are old and everything is part of history!",
     txt3 : "* By using Simgo, \"echo\" and other ugly things cease to exist!",
     url_repo : "https://github.com/jofpin/simgo"
