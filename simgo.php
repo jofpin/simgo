@@ -265,16 +265,39 @@ class simgo {
     }
 
     /**
-     * To replace the ugly "include"
+     * To replace the ugly "include or require".
+     * 
+     * 0 for <code>include</code>
+     * 1 for <code>include_once</code>
+     * 2 for <code>require</code>
+     * 3 for <code>require_once</code>
+     * 
      *
      * @example page("header.php");
-     * @example page("footer.php");
+     * @example page("connection.php", 2);
+     * @example page("logic/math.php");
+     * @example page("view/footer.php", 3);
      *
-     * @param  string $string
-     * @return string
+     * @param  string $path location where is the page
+     * @param integer $type include or require type
+     * 
      */
-    function page($string) {
-        include $string;
+    function page($path, $type = 0) {
+        
+        switch ($type){
+            case 0:
+                include $path;
+                break;
+            case 1:
+                include_once $path;
+                break;
+            case 2:
+                require $path;
+                break;
+            case 3:
+                require_once $path;
+                break;
+        }
     }
 
     /**
@@ -302,10 +325,11 @@ class simgo {
      * @example redirect("test");
      *
      * @param string  $url_value The URL
+     * @param boolean $new_tab if true, open the url in a new tab<esperimental option> 
      * @param integer $status Status Code
      * @param integer $delay  Delay
      */
-    function redirect($url_value, $status = 302, $delay = null) {
+    function redirect($url_value, $new_tab = FALSE, $status = 302, $delay = null) {
         // Redefine Vars
         $status = (int) $status;
         $url_value = (string) $url_value;
@@ -318,7 +342,13 @@ class simgo {
         // Sent headers game
         if (headers_sent()) {
 
-            go("<script>document.location.href='" . $url_value . "';</script>\n");
+            if ($new_tab == TRUE) {
+                go("<script>window.open('" . $url_value . "', '_blank');</script>\n");
+            }else{
+                go("<script>document.location.href='" . $url_value . "';</script>\n");
+            }
+            
+            
 
         } else {
             // Redirection header
@@ -330,6 +360,7 @@ class simgo {
         }
 
     }
+
 
     /**
      * Functions for POST & GET requests

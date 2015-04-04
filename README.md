@@ -25,9 +25,11 @@ go("Hi I'm chicken");
 
 page("");
 ```php
-// Example: To replace the ugly "include"
+// Example: To replace the ugly "include or require"
 page("header.php");
-page("footer.php");
+page("connection.php", 2);
+page("logic/math.php");
+page("view/footer.php", 3);
 ```
 
 clean();
